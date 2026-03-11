@@ -248,28 +248,20 @@ function getColNames(headers, sheetName, sheetType){
   };
 }
 
-// CORRECT: Total Invested = SUM(buy invested) - SUM(sell invested)
-// Current Value = SUM of buy rows' current value only
+// ONE RULE: buy = positive, sell = negative. Apply uniformly to invested, current, profit.
 function sheetStats(name){
   const s=S.sheets.find(x=>x.name===name);
   const d=S.data[name];if(!d||!d.rows.length)return{inv:0,cur:0,pnl:0,pct:0};
   const h=d.headers, type=s?s.type:'other';
   const cols=getColNames(h,name,type);
   const tagC=findCol(h,['Tags','Tag']),actC=findCol(h,['Action']);
-  let buyInv=0, sellInv=0, buyCur=0;
+  let totalInv=0, totalCur=0;
   d.rows.forEach(r=>{
     const sell=isSell(r,tagC,actC);
-    const inv=cols.ic?toNum(r[cols.ic]):0;
-    const cur=cols.cc?toNum(r[cols.cc]):0;
-    if(sell){
-      sellInv+=inv;
-    } else {
-      buyInv+=inv;
-      buyCur+=cur;
-    }
+    const sign=sell?-1:1; // buy=+1, sell=-1
+    totalInv += sign * (cols.ic?toNum(r[cols.ic]):0);
+    totalCur += sign * (cols.cc?toNum(r[cols.cc]):0);
   });
-  const totalInv=buyInv-sellInv;
-  const totalCur=buyCur;
   const pnl=totalCur-totalInv;
   return{inv:totalInv,cur:totalCur,pnl,pct:totalInv?((pnl/totalInv)*100):0};
 }
@@ -288,9 +280,10 @@ function getAllRows(){
       const sell=isSell(r,tagC,actC),dt=parseDate(r[dc]);
       const inv=cols.ic?toNum(r[cols.ic]):0;
       const cur=cols.cc?toNum(r[cols.cc]):0;
-      const profit=cols.pc?toNum(r[cols.pc]):(sell?0:cur-inv);
+      const profit=cols.pc?toNum(r[cols.pc]):0;
       const profitPct=cols.ptc?toNum(r[cols.ptc]):(inv?((profit/inv)*100):0);
-      all.push({sheet:s.name,type:s.type,bucket:s.bucket||'other',date:dt,dateStr:r[dc]||'',name:r[nc]||s.name,ticker:r[tc]||'',qty:toNum(r[qc]),pricePerUnit:ppc?toNum(r[ppc]):0,invested:inv,currentValue:sell?0:cur,profit,profitPct,isSell:sell,category:r[catC]||'',subCategory:r[subCatC]||'',raw:r});
+      // buy=positive, sell=negative — raw values stored, sign applied where needed
+      all.push({sheet:s.name,type:s.type,bucket:s.bucket||'other',date:dt,dateStr:r[dc]||'',name:r[nc]||s.name,ticker:r[tc]||'',qty:toNum(r[qc]),pricePerUnit:ppc?toNum(r[ppc]):0,invested:inv,currentValue:cur,profit,profitPct,isSell:sell,category:r[catC]||'',subCategory:r[subCatC]||'',raw:r});
     });
   });
   return all;
@@ -402,6 +395,8 @@ function renderHoldings(){
   let rows=getAllRows().filter(r=>!r.isSell);
   if(srch)rows=rows.filter(r=>r.name.toLowerCase().includes(srch)||r.ticker.toLowerCase().includes(srch));
   if(asset)rows=rows.filter(r=>r.sheet===asset);if(bucket)rows=rows.filter(r=>r.bucket===bucket);
+  // For per-row display, buy rows have positive values directly
+  // But for totals, use sheetStats which applies buy-sell netting
   const tI=rows.reduce((s,r)=>s+r.invested,0),tC=rows.reduce((s,r)=>s+r.currentValue,0),tP=rows.reduce((s,r)=>s+r.profit,0);
   $$('#holdCards').innerHTML=`<div class="card"><div class="lbl">Holdings</div><div class="val">${rows.length}</div></div><div class="card"><div class="lbl">Invested</div><div class="val">${fmt(tI,1)}</div></div><div class="card"><div class="lbl">Current</div><div class="val">${fmt(tC,1)}</div></div><div class="card"><div class="lbl">P&L</div><div class="val ${tP>=0?'pos':'neg'}">${fmt(tP,1)}</div><div class="chg ${tP>=0?'pos':'neg'}">${pct(tP,tI)}%</div></div>`;
   const ps=S.ps,t=rows.length,p=Math.max(1,Math.ceil(t/ps));S.pg.hold=Math.min(S.pg.hold,p);const sl=rows.slice((S.pg.hold-1)*ps,S.pg.hold*ps);
@@ -478,10 +473,10 @@ function renderRealized(){
 
 // ═══ CATEGORIES — per asset class, grouped by Category + Sub Category ═══
 function buildCategories(){
-  const allBuy=getAllRows().filter(r=>!r.isSell);
-  // Group by sheet -> category -> subCategory
+  const allRows=getAllRows();
+  // Group by sheet -> category -> subCategory, applying buy/sell sign
   const bySheet={};
-  allBuy.forEach(r=>{
+  allRows.forEach(r=>{
     if(!bySheet[r.sheet])bySheet[r.sheet]={};
     const cat=r.category||'Uncategorized';
     if(!bySheet[r.sheet][cat])bySheet[r.sheet][cat]={};
@@ -501,11 +496,11 @@ function buildCategories(){
       html+=`<div class="tw"><table><thead><tr><th>Sub Category</th><th>Holdings</th><th>Invested</th><th>Current</th><th>P&L</th><th>Return%</th></tr></thead><tbody>`;
       let catI=0,catC=0,catP=0,catN=0;
       Object.entries(subs).forEach(([sub,rows])=>{
-        const inv=rows.reduce((s,r)=>s+r.invested,0);
-        const cur=rows.reduce((s,r)=>s+r.currentValue,0);
-        const pnl=cur-inv;
-        catI+=inv;catC+=cur;catP+=pnl;catN+=rows.length;
-        html+=`<tr><td style="font-weight:600">${sub}</td><td>${rows.length}</td><td>${fmt(inv,1)}</td><td>${fmt(cur,1)}</td><td class="${pnl>=0?'pp':'pn'}">${fmt(pnl,1)}</td><td class="${pnl>=0?'pp':'pn'}">${pct(pnl,inv)}%</td></tr>`;
+        // Apply buy=+, sell=- rule for aggregation
+        let inv=0,cur=0,pnl=0;
+        rows.forEach(r=>{const sign=r.isSell?-1:1;inv+=sign*r.invested;cur+=sign*r.currentValue;pnl+=sign*r.profit});
+        catI+=inv;catC+=cur;catP+=pnl;catN+=rows.filter(r=>!r.isSell).length;
+        html+=`<tr><td style="font-weight:600">${sub}</td><td>${rows.filter(r=>!r.isSell).length}</td><td>${fmt(inv,1)}</td><td>${fmt(cur,1)}</td><td class="${pnl>=0?'pp':'pn'}">${fmt(pnl,1)}</td><td class="${pnl>=0?'pp':'pn'}">${pct(pnl,inv)}%</td></tr>`;
       });
       html+=`<tr class="summary-row"><td>${cat} Total</td><td>${catN}</td><td>${fmt(catI,1)}</td><td>${fmt(catC,1)}</td><td class="${catP>=0?'pp':'pn'}">${fmt(catP,1)}</td><td class="${catP>=0?'pp':'pn'}">${pct(catP,catI)}%</td></tr>`;
       html+=`</tbody></table></div></div>`;
