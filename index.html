@@ -12,9 +12,8 @@ body{font-family:'Segoe UI',sans-serif;background:#060d1a;color:#e2e8f0;min-heig
 ::-webkit-scrollbar{width:5px;height:5px}
 ::-webkit-scrollbar-thumb{background:#1a2336;border-radius:3px}
 
-/* LOGIN */
 #loginScreen{display:flex;align-items:center;justify-content:center;min-height:100vh;padding:24px;background:radial-gradient(ellipse at 30% 40%,rgba(99,102,241,.1) 0%,transparent 60%),#060d1a}
-.lbox{background:rgba(13,21,38,.9);border:1px solid #1a2336;border-radius:24px;padding:44px 40px;width:100%;max-width:500px;backdrop-filter:blur(20px)}
+.lbox{background:rgba(13,21,38,.9);border:1px solid #1a2336;border-radius:24px;padding:44px 40px;width:100%;max-width:520px;backdrop-filter:blur(20px)}
 .lbox-icon{text-align:center;font-size:2.6rem;margin-bottom:10px}
 .lbox h1{font-size:1.4rem;font-weight:800;text-align:center;background:linear-gradient(135deg,#818cf8,#c084fc,#67e8f9);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:4px}
 .lbox-name{text-align:center;font-size:11px;color:var(--t2);margin-bottom:28px;font-weight:500;letter-spacing:.5px;text-transform:uppercase}
@@ -37,7 +36,6 @@ body{font-family:'Segoe UI',sans-serif;background:#060d1a;color:#e2e8f0;min-heig
 .errmsg{color:#fca5a5;font-size:12px;margin-top:8px;padding:9px 12px;background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.2);border-radius:8px;display:none}
 .errmsg.on{display:block}
 
-/* SIDEBAR + MAIN */
 #app{display:none}
 .sidebar{position:fixed;left:0;top:0;bottom:0;width:230px;background:rgba(9,15,28,.97);border-right:1px solid var(--b);padding:0;z-index:100;display:flex;flex-direction:column}
 .sidebar-brand{padding:22px 20px 18px;border-bottom:1px solid var(--b)}
@@ -61,7 +59,6 @@ body{font-family:'Segoe UI',sans-serif;background:#060d1a;color:#e2e8f0;min-heig
 .topbar-r{display:flex;gap:8px;align-items:center}
 .page{display:none}.page.on{display:block}
 
-/* CARDS */
 .cards-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:10px;margin-bottom:16px}
 .card{background:var(--c);border:1px solid var(--b);border-radius:14px;padding:15px;transition:border-color .2s}
 .card:hover{border-color:var(--b2)}
@@ -71,7 +68,6 @@ body{font-family:'Segoe UI',sans-serif;background:#060d1a;color:#e2e8f0;min-heig
 .card .chg{font-size:11px;font-weight:600;margin-top:3px}
 .pos{color:var(--g)}.neg{color:var(--r)}.neu{color:var(--y)}
 
-/* BUCKETS */
 .bucket-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px}
 .bcard{border-radius:14px;padding:15px;border:1px solid}
 .bcard.hedge{background:linear-gradient(135deg,#130800,#1e1000);border-color:#78350f}
@@ -82,14 +78,12 @@ body{font-family:'Segoe UI',sans-serif;background:#060d1a;color:#e2e8f0;min-heig
 .bcard .bv{font-size:1.1rem;font-weight:800;margin-bottom:3px}
 .bcard .bs{font-size:11px;color:var(--t2);margin-bottom:2px}
 
-/* CHARTS */
 .charts2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
 .cc{background:var(--c);border:1px solid var(--b);border-radius:14px;padding:16px}
 .cc h3{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--t2);margin-bottom:12px}
 .ch{position:relative;height:210px}
 .ch-lg{height:280px}
 
-/* TABLE */
 .tc{background:var(--c);border:1px solid var(--b);border-radius:14px;padding:16px;margin-bottom:16px}
 .tc-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;flex-wrap:wrap;gap:8px}
 .tc-hdr h3{font-size:13px;font-weight:700}
@@ -104,7 +98,7 @@ th:hover{color:#e2e8f0}
 td{padding:8px 10px;border-bottom:1px solid #0d1526;white-space:nowrap;vertical-align:middle}
 tr:last-child td{border:none}
 tr:hover td{background:rgba(255,255,255,.02)}
-tr.summary-row td{background:rgba(99,102,241,.08);font-weight:700;border-top:1px solid var(--b);border-bottom:none}
+tr.summary-row td{background:rgba(99,102,241,.08);font-weight:700;border-top:2px solid var(--a);border-bottom:none}
 .tag{display:inline-block;padding:2px 8px;border-radius:7px;font-size:10px;font-weight:700}
 .t-buy{background:#14532d;color:#86efac}
 .t-sell{background:#7f1d1d;color:#fca5a5}
@@ -119,7 +113,6 @@ tr.summary-row td{background:rgba(99,102,241,.08);font-weight:700;border-top:1px
 .pi{font-size:11px;color:var(--t2)}
 .empty{text-align:center;padding:36px;color:var(--t2);font-size:12px}
 
-/* NET WORTH BREAKDOWN */
 .nw-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px;margin-bottom:16px}
 .nw-item{background:var(--c);border:1px solid var(--b);border-radius:12px;padding:13px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px}
 .nw-item.liab{border-color:#450a0a}
@@ -127,7 +120,6 @@ tr.summary-row td{background:rgba(99,102,241,.08);font-weight:700;border-top:1px
 .nw-item .nw-cat{font-size:10px;color:var(--t2);margin-top:2px}
 .nw-item .nw-val{font-size:13px;font-weight:800;white-space:nowrap}
 
-/* AI */
 .ai-card{background:linear-gradient(135deg,rgba(99,102,241,.08),rgba(139,92,246,.06));border:1px solid rgba(99,102,241,.25);border-radius:14px;padding:18px;margin-bottom:16px}
 .ai-card h3{font-size:12px;font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:8px}
 .insight{background:rgba(0,0,0,.25);border-radius:10px;padding:13px;margin-bottom:8px;border-left:3px solid var(--a)}
@@ -139,7 +131,6 @@ tr.summary-row td{background:rgba(99,102,241,.08);font-weight:700;border-top:1px
 .risk-needle{position:absolute;top:-5px;width:4px;height:20px;background:#fff;border-radius:2px;transform:translateX(-50%);box-shadow:0 0 6px rgba(255,255,255,.4);transition:left .6s}
 .risk-labels{display:flex;justify-content:space-between;font-size:10px;color:var(--t2);margin-top:4px}
 
-/* GOAL */
 .goal-card{background:var(--c);border:1px solid var(--b);border-radius:14px;padding:15px;margin-bottom:10px}
 .goal-head{display:flex;justify-content:space-between;margin-bottom:8px}
 .goal-name{font-size:13px;font-weight:700}
@@ -148,19 +139,16 @@ tr.summary-row td{background:rgba(99,102,241,.08);font-weight:700;border-top:1px
 .goal-bar{height:100%;border-radius:4px;background:linear-gradient(90deg,#6366f1,#8b5cf6)}
 .goal-stats{display:flex;justify-content:space-between;font-size:11px;color:var(--t2);flex-wrap:wrap;gap:4px}
 
-/* TAX */
 .tax-badge{padding:2px 9px;border-radius:7px;font-size:10px;font-weight:700}
 .ltcg{background:#14532d;color:#86efac}
 .stcg{background:#7c2d12;color:#fed7aa}
 
-/* BADGES */
 .badge{font-size:9px;padding:2px 7px;border-radius:7px;font-weight:700}
 .badge-hedge{background:#78350f;color:#fbbf24}
 .badge-wealth{background:#1e3a8a;color:#93c5fd}
 .badge-safety{background:#14532d;color:#86efac}
 .badge-other{background:#1f2937;color:#9ca3af}
 
-/* MISC */
 .btn{background:var(--a);color:#fff;border:none;border-radius:8px;padding:9px 16px;font-size:12px;font-weight:600;cursor:pointer;transition:all .2s}
 .btn:hover{opacity:.85}
 .btn-sm{padding:5px 10px;font-size:11px;background:#1a2336;color:#e2e8f0;border:none;border-radius:6px;cursor:pointer}
@@ -170,7 +158,6 @@ tr.summary-row td{background:rgba(99,102,241,.08);font-weight:700;border-top:1px
 .upd{font-size:11px;color:var(--t2)}
 .sec-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--t2);margin-bottom:10px;margin-top:4px}
 
-/* OVERLAY */
 #ov{display:none;position:fixed;inset:0;background:rgba(6,13,26,.92);z-index:300;align-items:center;justify-content:center;flex-direction:column;gap:14px}
 #ov.on{display:flex}
 .spin{width:40px;height:40px;border:3px solid var(--b);border-top-color:var(--a);border-radius:50%;animation:sp .7s linear infinite}
@@ -199,7 +186,7 @@ tr.summary-row td{background:rgba(99,102,241,.08);font-weight:700;border-top:1px
     </div>
     <div id="panelJson">
       <div class="fld">
-        <textarea id="jsonInput" placeholder='Paste your config JSON here…&#10;{&#10;  "fxRate": 92.07,&#10;  "sheets": [...]&#10;}'></textarea>
+        <textarea id="jsonInput" placeholder='Paste your config JSON here…&#10;{&#10;  "fxRate": 92.07,&#10;  "sheets": [...],&#10;  "nonDetailed": {&#10;    "id": "...", "tab": "...",&#10;    "bucketMap": { "Gold": "hedge", "FD": "safety" }&#10;  }&#10;}'></textarea>
       </div>
     </div>
     <div id="panelManual" style="display:none">
@@ -208,6 +195,11 @@ tr.summary-row td{background:rgba(99,102,241,.08);font-weight:700;border-top:1px
         <div class="fld" style="margin:0"><label>Non-Detailed Sheet ID</label><input id="ndId" placeholder="Sheet ID"/></div>
       </div>
       <div class="fld"><label>Non-Detailed Tab Name</label><input id="ndTab" placeholder="Non Detailled Inv"/></div>
+      <div class="fld"><label>Non-Detailed Default Bucket</label>
+        <select id="ndBucket" style="width:100%;background:#060d1a;border:1px solid var(--b);border-radius:10px;padding:10px 14px;color:#e2e8f0;font-size:13px;outline:none">
+          <option value="other">Other</option><option value="hedge">Hedge</option><option value="wealth">Wealth</option><option value="safety">Safety</option>
+        </select>
+      </div>
       <div id="sheetRows" style="margin-bottom:8px"></div>
       <button class="btn-ghost" onclick="addSRow()" style="width:100%;margin-bottom:8px">+ Add Sheet</button>
     </div>
@@ -432,30 +424,25 @@ tr.summary-row td{background:rgba(99,102,241,.08);font-weight:700;border-top:1px
 </div>
 
 <script>
-// ══ CONSTANTS ════════════════════════════════════════════════════════════════
 const SCOPES='https://www.googleapis.com/auth/spreadsheets.readonly';
 const COLORS=['#6366f1','#f59e0b','#22c55e','#ef4444','#0ea5e9','#a78bfa','#fb923c','#34d399','#f472b6','#fbbf24','#60a5fa','#e879f9'];
 const LTCG_MONTHS={equity:12,mutual_fund:12,crypto:36,etf:12,physical:36,fd:0,real_estate:24,other:36};
-// Categories always treated as liabilities regardless of amount sign
 const LIABILITY_CATS=['amount borrowed','loan','liability','debt','borrowed','emi'];
 
-// ══ STATE ════════════════════════════════════════════════════════════════════
 const S={
   clientId:'',token:'',tokenExp:0,
   fx:92.07,ps:25,
-  sheets:[],ndSheet:null,goals:[],
+  sheets:[],ndSheet:null,ndBucketMap:{},ndDefaultBucket:'other',goals:[],
   data:{},ndData:null,
   user:{name:'',avatar:'',email:''},
   pg:{hold:1,tx:1,real:1}
 };
 
-// ══ DOM HELPERS ══════════════════════════════════════════════════════════════
 const $=s=>[...document.querySelectorAll(s)];
 const $1=s=>document.querySelector(s);
 function ovOn(t='Loading…'){$1('#ov').classList.add('on');$1('#ovTxt').textContent=t}
 function ovOff(){$1('#ov').classList.remove('on')}
 
-// ══ LOGIN UI ═════════════════════════════════════════════════════════════════
 function switchTab(t){
   $1('#tabJson').classList.toggle('on',t==='json');
   $1('#tabManual').classList.toggle('on',t==='manual');
@@ -480,11 +467,8 @@ function addSRow(name='',id='',tab='',type='equity',bucket=''){
   d.appendChild(r);
 }
 
-// ══ JSON PARSING & VALIDATION ════════════════════════════════════════════════
 function parseJSON(raw){
-  // Fix common JSON errors: missing commas before closing braces/brackets
   let s=raw.trim();
-  // Add missing commas between properties
   s=s.replace(/("|\d|true|false|null)\s*\n\s*(")/g,'$1,\n  $2');
   s=s.replace(/("|\d|true|false|null)\s*\n(\s*[}\]])/g,'$1\n$2');
   return JSON.parse(s);
@@ -497,7 +481,6 @@ function collectConfig(){
     if(!raw)throw new Error('Please paste your config JSON');
     return parseJSON(raw);
   }
-  // Manual
   const sheets=[...$('#sheetRows > div')].map(r=>({
     name:r.querySelector('.rn').value.trim(),
     id:r.querySelector('.ri').value.trim(),
@@ -505,11 +488,11 @@ function collectConfig(){
     type:r.querySelector('.rtype').value,
     bucket:r.querySelector('.rbucket').value
   })).filter(s=>s.name&&s.id&&s.tab);
-  const ndId=$1('#ndId').value.trim(),ndTab=$1('#ndTab').value.trim();
+  const ndId=$1('#ndId').value.trim(),ndTab=$1('#ndTab').value.trim(),ndBucket=$1('#ndBucket').value;
   return{
     fxRate:parseFloat($1('#fxRate').value)||92.07,
     pageSize:25,sheets,
-    nonDetailed:ndId&&ndTab?{id:ndId,tab:ndTab}:null,
+    nonDetailed:ndId&&ndTab?{id:ndId,tab:ndTab,defaultBucket:ndBucket}:null,
     goals:[]
   };
 }
@@ -517,12 +500,16 @@ function collectConfig(){
 function applyConfig(cfg){
   S.fx=parseFloat(cfg.fxRate)||92.07;
   S.ps=parseInt(cfg.pageSize)||25;
+  // Bucket is taken directly from input config — only falls back to guessBucket if not provided
   S.sheets=(cfg.sheets||[]).map(s=>({
     ...s,
     id:s.id||s.spreadsheetId||'',
     bucket:s.bucket||guessBucket(s.name,s.type)
   }));
   S.ndSheet=cfg.nonDetailed||null;
+  // Non-detailed bucket mapping: allows per-item bucket assignment via config
+  S.ndBucketMap=(cfg.nonDetailed&&cfg.nonDetailed.bucketMap)||{};
+  S.ndDefaultBucket=(cfg.nonDetailed&&cfg.nonDetailed.defaultBucket)||'other';
   S.goals=cfg.goals||[];
 }
 
@@ -534,7 +521,20 @@ function guessBucket(name,type){
   return'other';
 }
 
-// ══ OAUTH ════════════════════════════════════════════════════════════════════
+// Resolve bucket for a non-detailed item using bucketMap, name heuristics, or default
+function resolveNdBucket(name,category){
+  const n=(name||'').toLowerCase(),c=(category||'').toLowerCase();
+  // Check explicit bucketMap first (exact or partial match)
+  for(const[key,val] of Object.entries(S.ndBucketMap)){
+    if(n.includes(key.toLowerCase())||c.includes(key.toLowerCase()))return val;
+  }
+  // Heuristic fallback
+  if(n.includes('gold')||n.includes('silver')||n.includes('crypto'))return'hedge';
+  if(n.includes('equity')||n.includes('stock')||n.includes('real estate')||n.includes('property'))return'wealth';
+  if(n.includes('fd')||n.includes('fixed')||n.includes('ppf')||n.includes('epf')||n.includes('nps')||n.includes('savings'))return'safety';
+  return S.ndDefaultBucket;
+}
+
 function startOAuth(){
   const cid=$1('#clientId').value.trim();
   const err=$1('#loginErr');
@@ -571,7 +571,6 @@ async function fetchUser(){
 
 function signOut(){S.token='';sessionStorage.clear();location.reload()}
 
-// ══ FETCH ════════════════════════════════════════════════════════════════════
 async function fetchSheet(id,tab){
   if(Date.now()>S.tokenExp-60000){alert('Session expired. Please sign in again.');signOut();throw new Error('expired')}
   const r=await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${id}/values/${encodeURIComponent(tab)}`,{headers:{Authorization:'Bearer '+S.token}});
@@ -595,7 +594,6 @@ async function loadAll(){
     S.ndSheet?fetchSheet(S.ndSheet.id,S.ndSheet.tab).then(d=>S.ndData=d).catch(()=>{}):Promise.resolve()
   ]);
   ovOff();
-  // Set user info
   $1('#sAvatar').src=S.user.avatar;
   $1('#sName').textContent=S.user.name;
   $1('#sEmail').textContent=S.user.email;
@@ -622,7 +620,6 @@ function goSettings(){
   if(cid)$1('#clientId').value=cid;
 }
 
-// ══ DATA HELPERS ═════════════════════════════════════════════════════════════
 function toINR(v,sheet){const n=parseFloat((v||'').toString().replace(/,/g,''))||0;return sheet==='US Equity'?n*S.fx:n}
 function findCol(hs,candidates){for(const c of candidates){const f=hs.find(h=>h.toLowerCase().includes(c.toLowerCase()));if(f)return f}return null}
 function numSum(rows,col,sheet){return rows.reduce((s,r)=>s+toINR(r[col]||0,sheet),0)}
@@ -642,7 +639,6 @@ function parseDate(s){
 function days(a,b=new Date()){return Math.floor((b-a)/86400000)}
 function hpLabel(d){if(d<30)return d+'d';if(d<365)return Math.floor(d/30)+'mo';return(d/365).toFixed(1)+'yr'}
 
-// Non-detailed: is this entry a liability?
 function isNdLiability(row){
   const cat=(row['Category']||row['category']||'').toLowerCase();
   const name=(row['Name']||row['name']||'').toLowerCase();
@@ -659,7 +655,6 @@ function sheetStats(name){
   const cc=findCol(h,['Current Value','Current Va','Total Curre','IN Current','Curr Value','CurrentValue']);
   const pc=findCol(h,['Profit','P&L','PnL']);
   const tagc=findCol(h,['Tags','Tag']),actc=findCol(h,['Action']);
-  // Only non-sell rows for unrealized
   const activeRows=r.filter(row=>!isSell(row,tagc,actc));
   const inv=ic?numSum(activeRows,ic,name):0,cur=cc?numSum(activeRows,cc,name):0,pnl=pc?numSum(activeRows,pc,name):cur-inv;
   return{inv,cur,pnl,pct:inv?((pnl/inv)*100):0};
@@ -701,7 +696,26 @@ function getAllRows(){
   return all;
 }
 
-// XIRR
+// Get non-detailed items parsed for net worth + dashboard bucket integration
+function getNdItems(){
+  const items=[];
+  if(!S.ndData||!S.ndData.rows.length)return items;
+  const h=S.ndData.headers;
+  const nc=findCol(h,['Name']),ac=findCol(h,['Amount']),catc=findCol(h,['Category','category']);
+  if(!nc||!ac)return items;
+  S.ndData.rows.forEach(r=>{
+    const rawAmt=parseFloat((r[ac]||'0').replace(/,/g,''));
+    const isLiab=isNdLiability(r);
+    const val=Math.abs(rawAmt);
+    const name=r[nc]||'Unknown';
+    const cat=r[catc]||'';
+    if(val===0)return;
+    const bucket=isLiab?'other':resolveNdBucket(name,cat);
+    items.push({name,val,isLiab,bucket,cat,sub:isLiab?'Liability':'Non-Detailed Asset'});
+  });
+  return items;
+}
+
 function xirr(flows){
   if(flows.length<2)return null;
   const t0=flows[0].date,yrs=flows.map(f=>(f.date-t0)/(365.25*86400000));
@@ -724,13 +738,11 @@ function calcXIRR(name){
   const rv=xirr(flows);return rv!==null?(rv*100).toFixed(1):null;
 }
 
-// Chart helpers
 function dc2(id){if(window._charts&&window._charts[id]){window._charts[id].destroy();delete window._charts[id]}}
 function mc(id,cfg){dc2(id);if(!window._charts)window._charts={};window._charts[id]=new Chart($1('#'+id),cfg)}
 const baseOpts=()=>({responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{ticks:{color:'#4b5563',font:{size:9}},grid:{display:false}},y:{ticks:{color:'#4b5563',callback:v=>fmt(v,true)},grid:{color:'#0d1526'}}}});
 const doughOpts=(pos='right')=>({responsive:true,maintainAspectRatio:false,plugins:{legend:{position:pos,labels:{color:'#9ca3af',font:{size:10},boxWidth:10}}}});
 
-// Pagination helper
 function pgHtml(id,cur,total,ps){
   const pages=Math.max(1,Math.ceil(total/ps));
   return`<span class="pi">${total} rows · Page ${cur}/${pages}</span>
@@ -743,7 +755,6 @@ function chPg(id,n){
   else if(id==='realPg'){S.pg.real=n;renderRealized()}
 }
 
-// ══ BUILD ALL ════════════════════════════════════════════════════════════════
 function buildAll(){
   $1('#updTxt').textContent='Updated '+new Date().toLocaleTimeString();
   buildNetWorth();buildDashboard();buildHoldingsPage();
@@ -751,7 +762,7 @@ function buildAll(){
   buildYearly();buildIncome();buildAdvisor();buildGoals();buildTax();
 }
 
-// ══ NET WORTH ════════════════════════════════════════════════════════════════
+// ══ NET WORTH — now fully integrates non-detailed with bucket support ════
 function buildNetWorth(){
   let assets=0,liabilities=0;
   const items=[];
@@ -762,21 +773,12 @@ function buildNetWorth(){
     if(st.cur>0){assets+=st.cur;items.push({name:s.name,val:st.cur,isLiab:false,bucket:s.bucket,sub:fmt(st.pnl,true)+' P&L'})}
   });
 
-  // Non-detailed
-  if(S.ndData&&S.ndData.rows.length){
-    const h=S.ndData.headers;
-    const nc=findCol(h,['Name']),ac=findCol(h,['Amount']);
-    S.ndData.rows.forEach(r=>{
-      if(!nc||!ac)return;
-      const rawAmt=parseFloat((r[ac]||'0').replace(/,/g,''));
-      const isLiab=isNdLiability(r);
-      const val=Math.abs(rawAmt);
-      const name=r[nc]||'Unknown';
-      if(val===0)return;
-      if(isLiab){liabilities+=val;items.push({name,val,isLiab:true,bucket:'other',sub:'Liability'})}
-      else{assets+=val;items.push({name,val,isLiab:false,bucket:'other',sub:'Non-Detailed Asset'})}
-    });
-  }
+  // Non-detailed items with proper bucket resolution
+  const ndItems=getNdItems();
+  ndItems.forEach(it=>{
+    if(it.isLiab){liabilities+=it.val}else{assets+=it.val}
+    items.push(it);
+  });
 
   const netWorth=assets-liabilities;
   $1('#nwCards').innerHTML=`
@@ -784,6 +786,7 @@ function buildNetWorth(){
     <div class="card"><div class="lbl">Total Assets</div><div class="val pos">${fmt(assets,true)}</div></div>
     <div class="card"><div class="lbl">Total Liabilities</div><div class="val neg">${fmt(liabilities,true)}</div></div>
     <div class="card"><div class="lbl">Debt-to-Asset</div><div class="val ${liabilities/Math.max(assets,1)>0.3?'neg':'neu'}">${assets?(liabilities/assets*100).toFixed(1):0}%</div></div>
+    <div class="card"><div class="lbl">Items</div><div class="val">${items.length}</div><div class="sub">${ndItems.length} non-detailed</div></div>
   `;
 
   const assetItems=items.filter(i=>!i.isLiab);
@@ -801,11 +804,22 @@ function buildNetWorth(){
   `).join('');
 }
 
-// ══ DASHBOARD ════════════════════════════════════════════════════════════════
+// ══ DASHBOARD — now includes non-detailed assets in bucket calculations ══
 function buildDashboard(){
   let tI=0,tC=0,tP=0;
   const bS={hedge:{inv:0,cur:0,pnl:0},wealth:{inv:0,cur:0,pnl:0},safety:{inv:0,cur:0,pnl:0}};
   S.sheets.forEach(s=>{const st=sheetStats(s.name);tI+=st.inv;tC+=st.cur;tP+=st.pnl;const b=s.bucket||'other';if(bS[b]){bS[b].inv+=st.inv;bS[b].cur+=st.cur;bS[b].pnl+=st.pnl}});
+
+  // Add non-detailed asset values into bucket totals
+  const ndItems=getNdItems();
+  ndItems.forEach(it=>{
+    if(!it.isLiab&&bS[it.bucket]){
+      bS[it.bucket].cur+=it.val;
+      bS[it.bucket].inv+=it.val; // treat as invested=current for non-detailed
+      tC+=it.val;tI+=it.val;
+    }
+  });
+
   const statsArr=S.sheets.map(s=>({n:s.name,...sheetStats(s.name)}));
   const best=statsArr.sort((a,b)=>b.pct-a.pct)[0];
   const xirrAll=S.sheets.map(s=>calcXIRR(s.name)).filter(x=>x!==null).map(Number);
@@ -831,7 +845,7 @@ function buildDashboard(){
   mc('cvChart',{type:'bar',data:{labels:acL,datasets:[{label:'Invested',data:acI,backgroundColor:'rgba(99,102,241,.55)',borderRadius:3},{label:'Current',data:acC,backgroundColor:'rgba(34,197,94,.55)',borderRadius:3}]},options:{...baseOpts(),plugins:{legend:{labels:{color:'#9ca3af',font:{size:10}}}}}});
 }
 
-// ══ HOLDINGS ════════════════════════════════════════════════════════════════
+// ══ HOLDINGS — with guaranteed summary row ══════════════════════════════
 function buildHoldingsPage(){
   const sel=$1('#holdAsset');
   sel.innerHTML='<option value="">All Assets</option>'+S.sheets.map(s=>`<option value="${s.name}">${s.name}</option>`).join('');
@@ -845,6 +859,7 @@ function renderHoldings(){
   if(asset)rows=rows.filter(r=>r.sheet===asset);
   if(bucket)rows=rows.filter(r=>r.bucket===bucket);
 
+  // Totals across ALL filtered rows (not just current page)
   const tI=rows.reduce((s,r)=>s+r.invested,0),tC=rows.reduce((s,r)=>s+r.currentValue,0),tP=rows.reduce((s,r)=>s+r.profit,0);
   $1('#holdCards').innerHTML=`
     <div class="card"><div class="lbl">Holdings</div><div class="val">${rows.length}</div></div>
@@ -874,9 +889,9 @@ function renderHoldings(){
       <td style="color:var(--t3);font-size:11px">${r.category}</td>
     </tr>`;
   });
-  // SUMMARY ROW
+  // SUMMARY ROW — always shown with totals across all filtered rows
   html+=`<tr class="summary-row">
-    <td colspan="4">📊 Summary (${rows.length} holdings)</td>
+    <td colspan="4" style="font-size:12px">📊 Total · ${rows.length} holdings</td>
     <td>${fmt(tI,true)}</td>
     <td>${fmt(tC,true)}</td>
     <td class="${tP>=0?'pp':'pn'}">${fmt(tP,true)}</td>
@@ -1045,7 +1060,6 @@ function buildIncome(){
     <tr><td style="font-weight:600">Fixed Deposits / RD</td><td><span class="tag t-hold">Interest</span></td><td class="pp">${fmt(fdInc,true)}</td><td>${total?(fdInc/total*100).toFixed(1):0}%</td></tr>
     <tr><td style="font-weight:600">Liquid / Debt MF</td><td><span class="tag t-hold">Returns</span></td><td class="pp">${fmt(liquidInc,true)}</td><td>${total?(liquidInc/total*100).toFixed(1):0}%</td></tr>
   </tbody></table></div>`;
-  // monthly income
   const mInc={};
   S.sheets.filter(s=>['fd','mutual_fund'].includes(s.type)).forEach(s=>{
     const d=S.data[s.name];if(!d?.rows.length)return;
@@ -1060,9 +1074,18 @@ function buildIncome(){
 // ══ ADVISOR ═════════════════════════════════════════════════════════════════
 function buildAdvisor(){
   const stats=S.sheets.map(s=>({name:s.name,bucket:s.bucket,...sheetStats(s.name),xirr:calcXIRR(s.name)}));
-  const tInv=stats.reduce((s,r)=>s+r.inv,0);
+
+  // Include non-detailed in total for accurate bucket % calculations
+  const ndItems=getNdItems();
+  let ndAssetTotal=0;
+  const ndBucketAdd={hedge:0,wealth:0,safety:0};
+  ndItems.forEach(it=>{if(!it.isLiab){ndAssetTotal+=it.val;if(ndBucketAdd[it.bucket]!==undefined)ndBucketAdd[it.bucket]+=it.val}});
+
+  const tInv=stats.reduce((s,r)=>s+r.inv,0)+ndAssetTotal;
   const bA={hedge:0,wealth:0,safety:0};
   stats.forEach(s=>{if(bA[s.bucket]!==undefined)bA[s.bucket]+=s.inv});
+  bA.hedge+=ndBucketAdd.hedge;bA.wealth+=ndBucketAdd.wealth;bA.safety+=ndBucketAdd.safety;
+
   const hPct=tInv?bA.hedge/tInv*100:0,wPct=tInv?bA.wealth/tInv*100:0,sPct=tInv?bA.safety/tInv*100:0;
   const riskScore=Math.min(100,Math.round(hPct*.5+wPct*.85+sPct*.1));
   const best=[...stats].sort((a,b)=>b.pct-a.pct)[0];
@@ -1089,13 +1112,15 @@ async function askAI(){
   const q=$1('#aiQ').value.trim();if(!q)return;
   $1('#aiAns').innerHTML='<span style="color:var(--a)">Analysing your portfolio…</span>';
   const stats=S.sheets.map(s=>({name:s.name,...sheetStats(s.name),xirr:calcXIRR(s.name)}));
+  const ndItems=getNdItems();
+  const ndSummary=ndItems.map(it=>`${it.name}: ${it.isLiab?'Liability':'Asset'} = ${fmt(it.val,true)} (bucket: ${it.bucket})`).join('\n');
   const summary=stats.map(s=>`${s.name}: Invested=${fmt(s.inv,true)}, Current=${fmt(s.cur,true)}, P&L=${fmt(s.pnl,true)}, Return=${s.pct.toFixed(2)}%, XIRR=${s.xirr||'N/A'}% p.a.`).join('\n');
   const allRows=getAllRows();
   const years=[...new Set(allRows.filter(r=>r.date).map(r=>r.date.getFullYear()))].sort();
   try{
     const res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},
       body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,
-        system:`You are a personal financial advisor for Harish Velmurugan. Answer concisely and helpfully based on the portfolio data. Portfolio:\n${summary}\nYears active: ${years.join(', ')}`,
+        system:`You are a personal financial advisor for Harish Velmurugan. Answer concisely and helpfully based on the portfolio data.\nDetailed Portfolio:\n${summary}\n\nNon-Detailed Assets/Liabilities:\n${ndSummary||'None'}\n\nYears active: ${years.join(', ')}`,
         messages:[{role:'user',content:q}]})});
     const data=await res.json();
     const text=data.content?.map(c=>c.text||'').join('')||'No response.';
@@ -1112,6 +1137,8 @@ function buildGoals(){
     $1('#goalCards').innerHTML='';return;
   }
   let tCur=0;S.sheets.forEach(s=>{tCur+=sheetStats(s.name).cur});
+  // Include non-detailed assets in goal tracking
+  getNdItems().forEach(it=>{if(!it.isLiab)tCur+=it.val});
   const perGoal=S.goals.map(g=>{
     const cur=g.current||tCur;
     const prog=Math.min(100,cur/g.target*100);
