@@ -142,7 +142,7 @@ tr.summary-row td{background:rgba(124,58,237,.08);font-weight:700;border-top:2px
   <div class="logo-circle">H</div><h1>Investment Portfolio</h1><div class="lbox-name">Harish Velmurugan</div>
   <div class="json-box"><h4>Config JSON</h4>
     <div class="tab-row"><button class="tab-btn on" id="tabJson" onclick="switchTab('json')">📋 JSON</button><button class="tab-btn" id="tabManual" onclick="switchTab('manual')">✏️ Manual</button></div>
-    <div id="panelJson"><div class="fld"><textarea id="jsonInput" placeholder='Paste config…'></textarea></div></div>
+    <div id="panelJson"><div class="fld"><textarea id="jsonInput" placeholder="Paste config…"></textarea></div></div>
     <div id="panelManual" style="display:none"><div id="sheetRows"></div><button class="btn-ghost" onclick="addSRow()" style="width:100%;margin:8px 0">+ Add Sheet</button></div>
   </div>
   <div class="fld"><label>OAuth Client ID</label><input id="clientId" placeholder="...apps.googleusercontent.com"/><div class="hint">Google Cloud Console → Credentials</div></div>
@@ -230,6 +230,26 @@ tr.summary-row td{background:rgba(124,58,237,.08);font-weight:700;border-top:2px
   </div>
 </div>
 <script>
+document.getElementById('jsonInput').value = JSON.stringify({
+  "pageSize": 25,
+  "sheets": [
+    {"name":"US Equity","id":"1pBSGDnNE6juZaFaURq3dJ6NYUPaprovo7eR-3SnxmR4","tab":"US EQ","type":"equity","bucket":"wealth"},
+    {"name":"Cryptocurrency","id":"1pBSGDnNE6juZaFaURq3dJ6NYUPaprovo7eR-3SnxmR4","tab":"CrC","type":"crypto","bucket":"hedge"},
+    {"name":"Indian Mutual Fund","id":"15hPRAV_z7adtXpGXZozk3bmOOjevDZRN6v38fxX1EO8","tab":"IN MF","type":"mutual_fund","bucket":"wealth"},
+    {"name":"Indian Debt Mutual Fund","id":"15hPRAV_z7adtXpGXZozk3bmOOjevDZRN6v38fxX1EO8","tab":"IN LMF","type":"mutual_fund","bucket":"safety"},
+    {"name":"Digital Precious Metals","id":"1ayyWNVQxkBdeSqJ-QYFS2B6P6kafViRuLclNJqza9Ew","tab":"Digital","type":"etf","bucket":"hedge"},
+    {"name":"Physical Precious Metals","id":"1ayyWNVQxkBdeSqJ-QYFS2B6P6kafViRuLclNJqza9Ew","tab":"Physical","type":"physical","bucket":"hedge"},
+    {"name":"Assets","id":"1Op7AeRKeybvmOBPeMPMzsgmZXh8rAG1Eo2_w6p5PsK4","tab":"Assets","type":"real_estate","bucket":"wealth"}
+  ],
+  "nonDetailed":{"id":"1W8Jq6F_dPkKlcCqxsrlsnpxtTy1DcSjwWxPg9bbLNtM","tab":"Non Detailled Inv","defaultBucket":"safety"},
+  "expenseSheet":{"id":"1W8Jq6F_dPkKlcCqxsrlsnpxtTy1DcSjwWxPg9bbLNtM","tab":"Savings Account"},
+  "goals":[
+    {"name":"Marriage","current":0,"target":1000000,"year":2027},
+    {"name":"Car","current":0,"target":1200000,"year":2027}
+  ]
+}, null, 2);
+</script>
+<script>
 const SCOPES='https://www.googleapis.com/auth/spreadsheets.readonly';
 const COLORS=['#7c3aed','#f59e0b','#10b981','#ef4444','#3b82f6','#a78bfa','#fb923c','#34d399','#f472b6','#fbbf24','#60a5fa','#e879f9'];
 const LTCG_MONTHS={equity:12,mutual_fund:12,crypto:36,etf:12,physical:36,fd:0,real_estate:24,other:36};
@@ -248,10 +268,9 @@ const DEFAULT_CONFIG = {
     {"name": "Assets", "id": "1Op7AeRKeybvmOBPeMPMzsgmZXh8rAG1Eo2_w6p5PsK4", "tab": "Assets", "type": "real_estate", "bucket": "wealth"}
   ],
   "nonDetailed": {"id": "1W8Jq6F_dPkKlcCqxsrlsnpxtTy1DcSjwWxPg9bbLNtM", "tab": "Non Detailled Inv", "defaultBucket": "safety"},
-  "expenseSheet": {"id": "1W8Jq6F_dPkKlcCqxsrlsnpxtTy1DcSjwWxPg9bbLNtM", "tab": "Savings Account"},
+  "expenseSheet": {"id": "1-1RQOVLLBwQ-GzC7wigc6lrzGG0NIshX347aDnksgaw", "tab": "Savings Account"},
   "goals": [
-    {"name": "Marriage", "current": 0, "target": 1000000, "year": 2027},
-    {"name": "Car", "current": 0, "target": 1200000, "year": 2027}
+    {"name": "Wealth", "current": 0, "target": 10000000, "year": 2030}
   ]
 };
 
